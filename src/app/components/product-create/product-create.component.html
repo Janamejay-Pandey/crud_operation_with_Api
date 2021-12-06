@@ -1,0 +1,35 @@
+<div style="width: 500px; margin:auto;">
+  <div class="submit-form">
+      <div *ngIf="!submitted">
+          <label for="name">Name</label>
+          <input
+             type="text"
+             class="form-control"
+             id="name"
+             required
+             [(ngModel)] = "product.name"
+             name="name"
+             required
+          />
+      </div>
+    
+      <div class="form-group">  
+          <label for="description">Description</label>
+          <input
+            class="form-control"
+            id="description"x
+            required
+            [(ngModel)] = "product.description"
+            name = "description"
+            
+          />
+      </div>
+      <button [disabled]="product.name==='' || product.description===''" (click)="createProduct()" class="btn btn-success">Create</button>
+
+      <div *ngIf="submitted===true">
+          <h3>You Successfully created a product!</h3>
+          <button class="btn btn-success" (click)="newProduct()">New..</button>
+      </div>
+
+  </div>
+</div>
